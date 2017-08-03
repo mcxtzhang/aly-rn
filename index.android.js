@@ -2,35 +2,51 @@
 
 import React from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View
 } from 'react-native';
 
-class HelloWorld extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.hello}>Hello, World2222256666699009</Text>
-      </View>
-    )
-  }
+import AboutUs from './about_us'
+import Settings from './settings'
 
-  componentWillMount() {
-    console.log("zxt----componentWillMount："+this.props.key1);
-  }
+class HelloWorld extends React.Component {
+    render() {
+        var whitch = this.props.path;
+
+        if (whitch == "settings") {
+            return (
+                <View style={styles.container}>
+                    <Settings/>
+                </View>
+            )
+        } else {
+            return (
+                <View style={styles.container}>
+                    <AboutUs/>
+                </View>
+
+            )
+        }
+    }
+
+    componentWillMount() {
+        console.log("zxt----componentWillMount：" + this.props.path);
+    }
 }
+
 var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  hello: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
+    container: {
+        flex: 1,
+    },
+    hello: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+        color: '#333333',
+
+    },
 });
 
 AppRegistry.registerComponent('AlyXiaoChaoAppProject', () => HelloWorld);

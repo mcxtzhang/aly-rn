@@ -9,7 +9,7 @@ import {
     Image
 } from 'react-native';
 
-class AboutUs extends React.Component {
+export default class AboutUs extends React.Component {
     render() {
         return (
             <View style={styles.container}>
@@ -26,7 +26,7 @@ var styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     hello: {
         fontSize: 20,
@@ -34,4 +34,3 @@ var styles = StyleSheet.create({
     },
 });
 
-AppRegistry.registerComponent('AboutUs2', () => AboutUs);
