@@ -12,6 +12,7 @@ import {
     Linking
 } from 'react-native';
 import {NativeModules} from 'react-native';
+import TopBar from './common/topbar'
 
 export default class Settings extends React.Component {
     componentWillMount() {
@@ -30,9 +31,7 @@ export default class Settings extends React.Component {
         console.log("Settings----settingData：" + settingData);
         return (
             <ScrollView>
-                <View style={styles.topBarBg}>
-                    <Text style={styles.topBarText}>设置</Text>
-                </View>
+                <TopBar centerTitle="设置"/>
 
 
                 <View style={styles.settingItem10}>
@@ -53,7 +52,9 @@ export default class Settings extends React.Component {
                  <Image source={require('./img/icon_arrow.png')}></Image>
                  </TouchableOpacity>*/}
 
-                <TouchableOpacity style={styles.settingItem10} onPress={() => { this.onJumpAboutUs()}}>
+                <TouchableOpacity style={styles.settingItem10} onPress={() => {
+                    this.onJumpAboutUs()
+                }}>
                     <Text style={styles.settingsText}>关于我们</Text>
                     <Image source={require('./img/icon_arrow.png')}></Image>
                 </TouchableOpacity>
@@ -113,18 +114,6 @@ export default class Settings extends React.Component {
     }
 }
 var styles = StyleSheet.create({
-    topBarBg: {
-        height: 72,
-        backgroundColor: '#00ACFF',
-        alignItems: 'center',
-        justifyContent: 'flex-end'
-    },
-    topBarText: {
-        marginBottom: 12,
-        fontSize: 18,
-        color: '#ffffff'
-    },
-
     container: {
         flex: 1,
         justifyContent: 'center',
