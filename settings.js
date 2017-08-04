@@ -10,24 +10,37 @@ import {
     ScrollView,
     TouchableOpacity
 } from 'react-native';
+import {NativeModules} from 'react-native';
 
 export default class Settings extends React.Component {
+
+    onJumpPrinterConfig() {
+        NativeModules.NativeRouterModule.jump("/setting");
+    }
 
 
     onPressClearCache() {
         console.log("You tapped the onPressClearCache!");
+        NativeModules.NativeRouterModule.jumpWith("/setting", null);
     }
 
     render() {
         return (
             <ScrollView>
+                <View style={styles.topBarBg}>
+                    <Text style={styles.topBarText}>设置</Text>
+                </View>
+
+
                 <View style={styles.settingItem10}>
                     <Text style={styles.settingsText}>账号</Text>
                     <Text style={styles.settingsValue}>xaxc001</Text>
                 </View>
 
 
-                <TouchableOpacity style={styles.settingItem10}>
+                <TouchableOpacity style={styles.settingItem10} onPress={() => {
+                    this.onJumpPrinterConfig()
+                }}>
                     <Text style={styles.settingsText}>打印机设置</Text>
                     <Image source={require('./img/icon_arrow.png')}></Image>
                 </TouchableOpacity>
@@ -68,6 +81,18 @@ export default class Settings extends React.Component {
     }
 }
 var styles = StyleSheet.create({
+    topBarBg: {
+        height: 72,
+        backgroundColor: '#00ACFF',
+        alignItems: 'center',
+        justifyContent: 'flex-end'
+    },
+    topBarText: {
+        marginBottom: 12,
+        fontSize: 18,
+        color: '#ffffff'
+    },
+
     container: {
         flex: 1,
         justifyContent: 'center',
