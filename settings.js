@@ -53,7 +53,7 @@ export default class Settings extends React.Component {
                  <Image source={require('./img/icon_arrow.png')}></Image>
                  </TouchableOpacity>*/}
 
-                <TouchableOpacity style={styles.settingItem10}>
+                <TouchableOpacity style={styles.settingItem10} onPress={() => { this.onJumpAboutUs()}}>
                     <Text style={styles.settingsText}>关于我们</Text>
                     <Image source={require('./img/icon_arrow.png')}></Image>
                 </TouchableOpacity>
@@ -101,6 +101,9 @@ export default class Settings extends React.Component {
         NativeModules.NativeRouterModule.jump("/setting");
     }
 
+    onJumpAboutUs() {
+        NativeModules.NativeRouterModule.jump("/react/aboutus");
+    }
 
     onPressClearCache() {
         //console.log("You tapped the onPressClearCache!");
