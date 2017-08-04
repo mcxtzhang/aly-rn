@@ -9,6 +9,7 @@ import {
     Image,
     ScrollView,
     TouchableOpacity,
+    TouchableHighlight,
     Linking
 } from 'react-native';
 import {NativeModules} from 'react-native';
@@ -31,6 +32,7 @@ export default class Settings extends React.Component {
         console.log("Settings----settingData：" + settingData);
         return (
             <ScrollView>
+
                 <TopBar centerTitle="设置"/>
 
 

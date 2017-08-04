@@ -6,20 +6,22 @@ import {
     Text,
     View,
     Image,
+    TouchableOpacity,
 } from 'react-native';
 
 import {NativeModules} from 'react-native';
 
 export default class TopBar extends React.Component {
-    componentWillMount() {
-        console.log("Settings----componentWillMount：" + this.props.account);
-    }
+    /*    componentWillMount() {
+     console.log("Settings----componentWillMount：" + this.props.account);
+     }*/
 
     constructor(props) {
         super(props)
         this.state = {
             leftIcon: this.props.leftIcon,
             leftText: this.props.leftText,
+            leftClick: this.props.leftClick,
             centerTitle: this.props.centerTitle,
             rightText: this.props.rightText,
 
@@ -29,12 +31,26 @@ export default class TopBar extends React.Component {
     render() {
         return (
             <View style={styles.topBarBg}>
-                <Image style={styles.leftIcon} source={(this.state.leftIcon)}></Image>
-                <Text style={styles.leftText}>{this.state.leftText}</Text>
+                <TouchableOpacity style={styles.left} onPress={this.onLeftClick.bind(this)}>
+                    <Image style={styles.leftIcon} source={(this.state.leftIcon) }></Image>
+                    <Text style={styles.leftText}>{this.state.leftText}</Text>
+                </TouchableOpacity>
+
+
                 <Text style={styles.centerTitle}>{this.state.centerTitle}</Text>
                 <Text style={styles.rightText}>{this.state.rightText}</Text>
             </View>
         )
+    }
+
+    onLeftClick() {
+        //console.log("onLeftClick");
+        //this.setState({centerTitle: 'dfada'});
+        if (this.state.leftClick) {
+            this.state.leftClick();
+        } else if (this.state.leftIcon || this.state.leftText) {
+            NativeModules.NativeRouterModule.finsih();
+        }
     }
 
 
@@ -49,10 +65,15 @@ var styles = StyleSheet.create({
         paddingRight: 15,
 
     },
+    left: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
     leftText: {
         fontSize: 18,
         color: '#ffffff',
-        flex: 1
+        paddingLeft: 5,
     }, leftIcon: {},
     centerTitle: {
         fontSize: 18,
