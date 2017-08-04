@@ -18,7 +18,7 @@ class HelloWorld extends React.Component {
         if (whitch == "settings") {
             return (
                 <View style={styles.container}>
-                    <Settings/>
+                    <Settings {...this.props}/>
                 </View>
             )
         } else {
@@ -32,7 +32,7 @@ class HelloWorld extends React.Component {
     }
 
     componentWillMount() {
-        console.log("zxt----componentWillMount：" + this.props.path);
+        console.log("zxt----componentWillMount：" + this.props);
     }
 }
 
