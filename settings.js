@@ -105,7 +105,7 @@ export default class Settings extends React.Component {
     }
 
     onJumpAboutUs() {
-        NativeModules.NativeRouterModule.jump("/react/aboutus");
+        NativeModules.NativeRouterModule.jump("/printer/setting");
     }
 
     onPressClearCache() {
