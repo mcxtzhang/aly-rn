@@ -33,10 +33,10 @@ export default class Settings extends React.Component {
         return (
             <ScrollView>
 
-                <TopBar centerTitle="设置"/>
+     {/*           <TopBar centerTitle="设置"/>*/}
 
 
-                <View style={styles.settingItem10}>
+                <View style={styles.settingItem1}>
                     <Text style={styles.settingsText}>账号</Text>
                     <Text style={styles.settingsValue}>{settingData["account"]}</Text>
                 </View>
