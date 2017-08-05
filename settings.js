@@ -73,13 +73,14 @@ export default class Settings extends React.Component {
 
 
                 <TouchableOpacity style={styles.settingItem10}
-                                  onPress={()=> this.onCall(settingData.helpPhone)}>
+                                  onPress={() => this.onCall(settingData.helpPhone)}>
                     <Text style={styles.settingsText}>客服电话</Text>
                     <Text style={[styles.settingsValue, {color: '#4990E2'}]}>{settingData.helpPhone}</Text>
                 </TouchableOpacity>
 
 
-                <TouchableOpacity style={styles.settingItem10}>
+                <TouchableOpacity style={styles.settingItem10}
+                                  onPress={this.onClickLoginOut.bind(this)}>
                     <Text style={styles.settingsText}>退出登录</Text>
                 </TouchableOpacity>
 
@@ -101,11 +102,11 @@ export default class Settings extends React.Component {
 
 
     onJumpPrinterConfig() {
-        NativeModules.NativeRouterModule.jump("/setting");
+        NativeModules.NativeRouterModule.jump("/printer/setting");
     }
 
     onJumpAboutUs() {
-        NativeModules.NativeRouterModule.jump("/printer/setting");
+        NativeModules.NativeRouterModule.jump("/react/aboutus");
     }
 
     onPressClearCache() {
@@ -113,6 +114,10 @@ export default class Settings extends React.Component {
         NativeModules.ToastAndroid.show("清理成功", NativeModules.ToastAndroid.SHORT);
         this.setState({cacheSize: 0});
         //NativeModules.NativeRouterModule.jumpWith("/setting", null);
+    }
+
+    onClickLoginOut() {
+        NativeModules.NativeLoginOutModule.loginOut();
     }
 }
 var styles = StyleSheet.create({
