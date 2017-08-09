@@ -10,6 +10,7 @@ import {
 
 import AboutUs from './about_us'
 import Settings from './settings'
+import Login from './login'
 
 class HelloWorld extends React.Component {
     render() {
@@ -21,14 +22,26 @@ class HelloWorld extends React.Component {
                     <Settings {...this.props}/>
                 </View>
             )
-        } else {
+        } else if (whitch == "AboutUs") {
             return (
                 <View style={styles.container}>
                     <AboutUs/>
                 </View>
 
             )
+        } else if (whitch == "Login") {
+            return (
+                <View style={styles.container}>
+                    <Login/>
+                </View>
+            )
+        } else {
+            return (
+                <View style={styles.container}>
+                </View>
+            )
         }
+
     }
 
     componentWillMount() {

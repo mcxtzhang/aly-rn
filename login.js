@@ -10,18 +10,45 @@ import {
 } from 'react-native';
 import TopBar from './common/topbar'
 import {NativeModules} from 'react-native';
+import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button'
 
-export default class AboutUs extends React.Component {
+
+export default class Login extends React.Component {
+    constructor(props){
+        super(props)
+        this.state={
+            text:''
+        }
+
+    }
+    onSelect(index, value) {
+        this.setState({
+            text: `Selected index: ${index} , value: ${value}`
+        })
+    }
+
     render() {
         return (
             <View style={styles.container}>
-                <TopBar leftIcon={require('./img/icon_back.png')} centerTitle="关于我们" />
-                <Image source={require('./img/logo.png')} style={{marginTop: 54}}/>
-                <Text style={{color: '#333333', fontSize: 20, marginTop: 20}}>俺来也商家版</Text>
-                <Text style={{color: '#666666', fontSize: 14, marginTop: 2, flex: 1}}>版本：V2.0</Text>
-                <Text style={{color: '#999999', fontSize: 12}}>俺来也（上海）网络科技有限公司</Text>
-                <Text style={{color: '#999999', fontSize: 12, marginTop: 6, marginBottom: 20}}>Copyright@2014-2016
-                    IMC</Text>
+
+                <RadioGroup style={{flex:1}}
+                    onSelect={(index, value) => this.onSelect(index, value)}
+                >
+                    <RadioButton value={'item1'}  style={{flex:1}} >
+                        <Text>This yjhkhkis item #1</Text>
+                    </RadioButton>
+
+                    <RadioButton value={'item2'} style={{flex:1}} >
+                        <Text>Thislklk is item #2</Text>
+                    </RadioButton>
+
+                    <RadioButton value={'item3'}  style={{flex:1}} >
+                        <Text>This im;lk;k;k;s item #3</Text>
+                    </RadioButton>
+                </RadioGroup>
+
+                <Text >{this.state.text}</Text>
+
             </View>
         )
     }
