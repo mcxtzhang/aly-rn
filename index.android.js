@@ -10,7 +10,7 @@ import {
 
 import AboutUs from './about_us'
 import Settings from './settings'
-import Login from './login'
+import StarFoodMain from './starfood_main'
 
 class HelloWorld extends React.Component {
     render() {
@@ -29,10 +29,10 @@ class HelloWorld extends React.Component {
                 </View>
 
             )
-        } else if (whitch == "Login") {
+        } else if (whitch == "StarFoodMain") {
             return (
                 <View style={styles.container}>
-                    <Login/>
+                    <StarFoodMain/>
                 </View>
             )
         } else {

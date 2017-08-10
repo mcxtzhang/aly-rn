@@ -24,7 +24,8 @@ export default class TopBar extends React.Component {
             leftClick: this.props.leftClick,
             centerTitle: this.props.centerTitle,
             rightText: this.props.rightText,
-
+            rightIcon: this.props.rightIcon,
+            rightClick: this.props.rightClick,
         };
     }
 
@@ -36,9 +37,15 @@ export default class TopBar extends React.Component {
                     <Text style={styles.leftText}>{this.state.leftText}</Text>
                 </TouchableOpacity>
 
-
                 <Text style={styles.centerTitle}>{this.state.centerTitle}</Text>
-                <Text style={styles.rightText}>{this.state.rightText}</Text>
+
+                <TouchableOpacity style={styles.right} onPress={this.state.rightClick}>
+                    <Image style={styles.rightIcon} source={(this.state.rightIcon) }></Image>
+                    <Text style={styles.rightText}>{this.state.rightText}</Text>
+
+                </TouchableOpacity>
+
+
             </View>
         )
     }
@@ -71,7 +78,7 @@ var styles = StyleSheet.create({
         alignItems: 'center',
     },
     leftText: {
-        fontSize: 18,
+        fontSize: 14,
         color: '#ffffff',
         paddingLeft: 5,
     }, leftIcon: {},
@@ -79,10 +86,15 @@ var styles = StyleSheet.create({
         fontSize: 18,
         color: '#ffffff',
     },
+    right: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+    },
     rightText: {
-        fontSize: 18,
+        fontSize: 14,
         color: '#ffffff',
-        flex: 1
     },
 });
 
